@@ -1,0 +1,33 @@
+.squarebox {
+    height: 75vw;
+    align-items: center;
+    vertical-align: middle;
+}
+
+#login-container input {
+    width: 25vw;
+}
+
+#login-container {
+    font-size: 1.15em;
+}
+
+#login-container h1 {
+    font-weight: 700;
+}
+
+#login-btn {
+    width: 25vw;
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+#login-container {
+    border: 0.4px solid rgb(212, 212, 212);
+    width: 50vw;
+    padding:20px;
+    padding-top:40px;
+    padding-bottom: 40px;
+    background-color: white;
+    margin-top:8vw;
+}

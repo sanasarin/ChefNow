@@ -1,0 +1,76 @@
+.small-recipe-pic {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.text-333 {
+  color: #333;
+}
+
+/*
+.card hr {
+  color: rgb(184, 184, 184);
+} */
+
+/* -- */
+.text {
+  font-size: small;
+}
+/* .alert-success {
+    background-color: rgba(224, 220, 220, 0.464);
+    color: black;
+    border-radius: 10px;
+  } */
+
+.fa-shopping-cart {
+  color: #215754;
+}
+
+.serving-btn {
+  background-color: #2157541e;
+  display: inline-flex;
+  border: none;
+  width: 30px !important;
+  height: 30px !important;
+  color: rgb(69, 110, 97);
+  font-weight: 700;
+}
+
+.serving-btn span {
+  font-size: 12px;
+}
+
+.serving-btn-general {
+  display: inline-flex;
+  font-weight: 700;
+}
+
+.serving-btn-general span {
+  font-size: 13px;
+}
+
+.text-serving {
+  position: relative;
+  top: -3px;
+}
+
+.list-group {
+  border: 0;
+}
+
+.list-group .list-group-item {
+  border: none;
+  border-bottom: 1px solid rgb(236, 236, 236);
+  font-weight: 500;
+}
+
+.list-group-item:last-child {
+  border: 0;
+}
+
+.quantity {
+  font-weight: normal;
+  color: gray;
+  margin-left: 10px;
+}

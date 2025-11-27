@@ -1,0 +1,85 @@
+.gray-font {
+  color: #85878a;
+}
+
+.card .custom-card {
+  color: #85878a;
+  letter-spacing: 0.5px;
+}
+
+.card-header {
+  background-color: white;
+  padding-top: 20px;
+  color: black;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-bottom-color: #eee;
+}
+
+.card-header-title {
+  font-weight: 700;
+  font-size: 1.75em;
+}
+
+.form-control {
+  padding-left: 15px;
+  font-size: 1.05em;
+}
+
+.card-body {
+  font-size: 17px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.card h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333;
+}
+
+.card.custom-card {
+  border: 1px solid #eee;
+  border-radius: 0.25rem;
+}
+
+.recipe-form-input,
+.p-inputtext.p-component.recipe-input-form {
+  padding: 0.375rem 0.75rem;
+  font-family: "Alegreya Sans", sans-serif;
+  width: 100% !important;
+  border: 1px solid #e6ecf3;
+  border-radius: 0.25rem;
+}
+
+/* .p-inputtext.p-component.p-inputnumber-input {
+  padding: 0.375rem 0.75rem;
+  font-family: "Alegreya Sans", sans-serif;
+  width: 100%;
+  border: 1px solid #e6ecf3;
+  border-radius: 0.25rem;
+}
+
+.p-inputnumber.p-component.p-inputwrapper.recipe-input-form {
+  width: 100%;
+} */
+
+.form-add-link {
+  cursor: pointer;
+}
+
+.autocomplete-custom input {
+  padding: 0.375rem 0.75rem;
+  font-family: "Alegreya Sans", sans-serif;
+  width: 100%;
+  border: 1px solid #e6ecf3;
+  border-radius: 0.25rem;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  /* color: #444; */
+  opacity: 0.75; /* Firefox */
+}

@@ -1,0 +1,59 @@
+.clicky,
+.clicky:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.clicky:hover {
+  /*Inspired from:https://codepen.io/sanjib104/pen/JjWrbYq*/
+  transform: scale(1.03);
+}
+
+.card-icons i {
+  color: #215754;
+}
+
+.card-icons div:last-of-type {
+  margin-right: 10%;
+}
+.card-icons {
+  display: flex;
+  gap: 10px;
+  height: auto;
+  align-items: center;
+}
+
+.recipe.card img {
+  object-fit: cover;
+}
+
+.recipe.card {
+  margin-top: 20px;
+  min-height: 460px;
+}
+.recipe.card h2 {
+  color: #3a9691;
+  font-size: 1.5rem;
+}
+
+.recipe.card {
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.recipe.card .card-body {
+  font-size: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 0;
+}

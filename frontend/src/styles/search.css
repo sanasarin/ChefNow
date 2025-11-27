@@ -1,0 +1,253 @@
+/*LOCAL LANDING PAGE STUFF GOES HERE*/
+/* https://css-tricks.com/snippets/css/typewriter-effect/ */
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.animated-text {
+  font-weight: 700;
+  overflow: hidden; /* Ensures the content is not revealed until the animation
+    /* border-right: solid #3a9691; The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  margin-bottom: 20px;
+  animation: typing 2.5s steps(40, end), blink-caret 0.75s;
+}
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #3a9691;
+  }
+}
+
+#text-rotation {
+  color: #3a9691;
+}
+
+#text-rotation::before {
+  content: "";
+  animation: animate infinite 10s;
+}
+
+@keyframes animate {
+  0% {
+    content: "eat";
+  }
+  20% {
+    content: "cook";
+  }
+  40% {
+    content: "craft";
+  }
+  60% {
+    content: "prepare";
+  }
+  80% {
+    content: "make";
+  }
+  100% {
+    content: "eat";
+  }
+}
+
+.search {
+  width: 70vw;
+}
+
+#searchText {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#search-bar {
+  height: 50px;
+  border: "0.4px solid #ced4da";
+  padding-left: 20px;
+  padding-right: 5px;
+  font-size: 20px;
+  font-weight: 300;
+  outline: none;
+  display: inline;
+}
+
+/* Move the search icon inside the searchbox */
+#search-input-icon {
+  position: relative;
+  z-index: 1;
+  margin-right: -40px;
+  color: gray;
+}
+
+#search-btn {
+  width: 70px;
+  height: 50px;
+}
+
+#search-btn-toggle {
+  height: 50px;
+}
+
+.search-filters {
+  display: flex;
+  gap: 2%;
+  text-align: center;
+  align-items: center;
+}
+.filter {
+  border: solid 2px #3a9691;
+  border-radius: 10px;
+  background-color: white;
+  width: 120px;
+  height: 63px;
+}
+
+#diets-filter {
+  border: solid 2px #3a9691;
+  border-radius: 10px;
+  background-color: white;
+  width: auto;
+  min-width: 115px;
+  height: auto;
+}
+
+#diets-filter p {
+  border-radius: 8px 8px 0px 0px;
+  background-color: #3a9691;
+  padding-bottom: 3%;
+  color: white;
+  margin-bottom: 0;
+  height: 27px;
+}
+
+.filter p {
+  border-radius: 8px 8px 0px 0px;
+  background-color: #3a9691;
+  padding-bottom: 3%;
+  color: white;
+  margin-bottom: 0;
+}
+.filter input {
+  outline: none;
+  border: none;
+  text-align: center;
+  width: 95%;
+}
+.form-input {
+  /*sort by filter*/
+  width: 95px;
+  min-height: 27px;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+
+.clicky,
+.clicky:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.clicky:hover {
+  /*Inspired from:https://codepen.io/sanjib104/pen/JjWrbYq*/
+  transform: scale(1.03);
+}
+
+.card-body {
+  padding-bottom: 0;
+}
+
+.card-icons {
+  display: inline-flex;
+  gap: 10px;
+  height: auto;
+  align-items: center;
+}
+
+.card-icons i {
+  color: #215754;
+}
+
+/*fade animations from https://codepen.io/cssanimation/pen/oYgXdM
+used for search page
+*/
+
+.fadeInBottom {
+  animation-name: fadeInBottom;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+.fadeInBottom2 {
+  animation-name: fadeInBottom;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.selection {
+  display: inline-flex;
+  align-items: center;
+  background-color: #056560;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.filter-x {
+  border: none;
+  background: transparent;
+
+  font-size: 17px;
+  line-height: 14px;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+  margin-bottom: 2px;
+}
+
+.filter-x:hover {
+  color: #333;
+}
+
+#clear-results-link {
+  color:#056560;
+}
+
+#clear-results-link:hover {
+  color: #3a9691;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#button-addon1:hover .iconfd{
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.iconfd {
+  font-size: 24px;
+}
+
+#button-addon2:hover .iconfd{
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}

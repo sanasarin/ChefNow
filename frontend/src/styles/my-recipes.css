@@ -1,0 +1,38 @@
+.my-recipes-tabview {
+  padding: 0;
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.my-recipes-card-body {
+  padding: 0;
+}
+
+.my-recipes-tabview .p-tabview-nav {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.p-tabview-nav i {
+  margin-right: 0.5em;
+}
+
+.p-tabview-title {
+  font-weight: 400;
+}
+
+.p-tabview-selected i {
+  color: #077e76;
+}
+
+.my-recipes-tabpanel {
+  flex-grow: 1;
+}
+
+.my-recipes-load-more {
+  font-family: "Alegreya Sans", sans-serif;
+  height: 35px;
+}
+
+.my-recipes-load-more span {
+  margin-right: 0.25em;
+}

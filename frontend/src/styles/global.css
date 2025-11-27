@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;1,100;1,300;1,400;1,500;1,700;1,800&family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+/* Add global styles here */
+body {
+  background-color: #f9fafa;
+  padding-top: 0px;
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.link-primary-c,
+.link-primary-c:focus {
+  color: #3a9691 !important;
+  text-decoration: none !important;
+}
+
+.btn-primary-c {
+  background-color: #3a9691 !important;
+  border-color: #3a9691 !important;
+}
+
+.btn-primary-c:hover {
+  background-color: #215754 !important;
+  border-color: #215754 !important;
+  text-decoration: none !important;
+}
+
+.link-primary-c:hover {
+  color: #215754 !important;
+  text-decoration: none !important;
+}
+
+.f-secondary,
+.gray-font {
+  color: #85878a;
+}
+
+#logo-nav {
+  font-weight: 500;
+  color: #3a9691;
+}
+
+#create-button {
+  padding: 5px;
+  margin-top: 2px;
+  padding-right: 10px;
+  color: white;
+  border-color: #e2fdf4;
+  font-weight: 500;
+  border: 0.6px solid #bcfae5;
+  background-color: #3a9691;
+  border-radius: 4px;
+}
+
+.btn-primary-c:focus {
+  background-color: #3a9691;
+  border: 0.6px solid #bcfae5;
+}
+
+.btn-primary-c:active {
+  background-color: #3a9691;
+  border: 0.6px solid #bcfae5;
+}
+
+/* Navbar responsiveness */
+@media only screen and (max-width: 992px) {
+  #create-button {
+    margin-top: 10px;
+  }
+
+  #profile-pic {
+    display: none;
+  }
+}
+
+#create-button:hover {
+  background-color: #215754;
+}
+
+#create-button span {
+  margin-left: 3px;
+}
+
+.recipe-picture {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 3px;
+}
+
+#login-nav {
+  width: 100%;
+  border-bottom: solid 0.5px;
+  border-color: #b9b9b9;
+  background-color: white;
+  padding: 20px;
+  margin: 0px;
+}
+/* General icons are this color */
+i {
+  color: #595b5e;
+}
+
+/* The following css is for the My Profile Dropdown in the Navbar */
+#profile-pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+#nav-user-section {
+  padding: 15px;
+  display: flex;
+}
+
+.dropdown-menu.custom {
+  min-width: 13rem;
+  color: #595b5e;
+}
+
+.dropdown-menu.custom a {
+  color: #595b5e;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+/* In general for inline icons */
+.inline-icon {
+  margin-right: 10px;
+}
+
+a.dropdown-item:active,
+a.dropdown-item:focus {
+  background-color: #3a9691;
+  color: white;
+}
+
+a.dropdown-item:active i,
+a.dropdown-item:focus i {
+  background-color: #3a9691;
+  color: white;
+}
+
+button.dropdown-item:active,
+button.dropdown-item:focus {
+  background-color: #3a9691;
+  color: white;
+}
+
+button.dropdown-item:active i,
+button.dropdown-item:focus i {
+  background-color: #3a9691;
+  color: white;
+}
+
+.alert-secondary-c {
+  background-color: #f8f9fa;
+  border-color: #eef2f8;
+}
+
+.alert-success {
+  background-color: #e5fef6;
+  border-radius: 6px;
+  border: 1px solid #bde1df;
+  color: #2f7975;
+}
+
+.alert-success .link-primary {
+  color: #215754 !important;
+}
+
+/* Mainly for edit profile page */
+/* Update placeholder style */
+.form-control::-webkit-input-placeholder {
+  color: silver;
+}
+
+#upload-image-label {
+  margin-top: 10px;
+  text-decoration: underline;
+  font-size: 16px;
+  color: #85878a;
+}
+#upload-image-preview {
+  height: 100px;
+}
+
+#modal-upload-image-preview {
+  height: 75px;
+  display: inline;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+#profile-image-upload-modal-body {
+  align-items: center;
+  align-content: center;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+#profile-image-upload-modal-body-title {
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.profile-image-upload-modal-body-button {
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  font-weight: 500;
+}
+
+.profile-image-upload-modal-body-button label {
+  cursor: pointer;
+}
+
+.link-primary-danger-c {
+  color: #dc3545;
+  text-decoration: none !important;
+}
+
+.link-primary-danger-c:hover {
+  color: #b91b2b !important;
+  text-decoration: none !important;
+}
+
+.profile-image-upload-modal-body-button-end {
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+  border-bottom: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 500;
+}
+
+.card.custom-card {
+  color: #85878a;
+  letter-spacing: 0.5px;
+}
+
+div.p-avatar.p-component.p-avatar-circle.p-avatar-xl {
+  margin-bottom: 10px;
+}
+
+.font-alv {
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.shopping-list-skeleton {
+  list-style: none;
+}
+
+.shopping-list-skeleton li {
+  margin-bottom: 10px;
+}
+
+.p-button span {
+  font-weight: 400;
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.p-button .p-button-icon {
+  /* Reset the properties you want to exclude */
+  font-family: "primeicons";
+}
+
+.shopping-list-load-more span {
+  /* color: #333; */
+  font-family: "Alegreya Sans", sans-serif;
+  letter-spacing: 0.5px;
+  font-size: 14.5px;
+}
+
+.shopping-list-load-more {
+  /* padding-left: 7px; */
+  height: 30px;
+  margin-left: 5px;
+}
+
+.shopping-items-load-more {
+  padding-left: 7px;
+  margin-left: 5px;
+  height: 30px;
+}
+
+.shopping-items-load-more span {
+  padding-right: 2px;
+  padding-top: 2px;
+}
+
+.p-toast-message-content {
+  font-family: "Alegreya Sans", sans-serif;
+  letter-spacing: 0.15mm;
+}
+
+.p-inline-message-success {
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+.nav-link.active,
+.active-custom {
+  color: #2f7b77 !important;
+  font-weight: 500;
+}
+
+#create-button-new {
+  padding: 5px;
+  /* margin-top: 2px; */
+  color: white;
+  font-weight: 500;
+}
+
+.p-autocomplete-input-token input {
+  border: none !important;
+}
+
+.p-autocomplete-multiple-container {
+  width: 100%;
+}
+
+#create-recipe-form .form-label {
+  font-weight: 500;
+}

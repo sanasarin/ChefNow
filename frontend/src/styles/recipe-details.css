@@ -1,0 +1,303 @@
+.recipe-detail-image {
+  width: 100%;
+}
+
+.recipe-detail.card-body {
+  padding: 40px;
+}
+
+.recipe-detail.card-body h1 {
+  font-weight: 700;
+  color: #333333;
+}
+
+.recipe-detail.card-body h3,
+.recipe-detail.card-body h4 {
+  font-weight: 500;
+  color: #333333;
+}
+
+.recipe-detail.card-body p {
+  color: #333333;
+  font-size: large;
+}
+
+.recipe-detail hr,
+hr {
+  color: rgb(202, 202, 202);
+}
+
+/* prep time, cook time section */
+.recipe-details-icons {
+  display: flex;
+  gap: 2rem;
+}
+.recipe-details-icons i {
+  color: #215754;
+}
+.recipe-details-icons h5,
+.recipe-details-icons p {
+  font-size: medium;
+  color: #85878a;
+}
+
+.recipe-details {
+  color: #333;
+}
+
+/*************** RECIPE DETAILS DONE  ***************/
+
+/* ingredients */
+.list-group li {
+  color: #85878a;
+  border-color: rgb(243, 243, 243);
+}
+
+.list-group .fw-bold {
+  color: #333;
+}
+
+/* comment section */
+.commenter-pic {
+  height: 85px;
+  width: 85px;
+  border-radius: 100%;
+}
+
+#comment-input {
+  padding: 20px;
+  height: 65px;
+}
+
+.recipe-detail .fa-star.checked {
+  color: rgb(248, 189, 60);
+}
+
+.recipe-detail .fa-star:hover {
+  color: rgb(248, 189, 60);
+}
+
+.recipe-detail .fa-star.user-checked {
+  color: rgb(248, 189, 60);
+}
+
+.recipe-detail .fa-star {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.recipe-detail .fa-heart {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.recipe-detail .fa-heart:hover,
+.liked {
+  color: rgb(255, 93, 93);
+}
+
+#comment-input-container label {
+  padding-left: 30px;
+}
+
+.recipe-summary {
+  display: grid;
+  gap: 2rem;
+}
+.recipe-picture {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 3px;
+  max-height: 220px;
+  min-height: 220px;
+  width: auto;
+  max-width: 80vw;
+}
+
+.recipe-info {
+  color: rgb(100, 97, 97);
+  margin: 1%;
+}
+.recipe-info h3 {
+  text-align: center;
+  color: #215754;
+}
+
+.ingredients,
+.instructions,
+.reviews {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.ingredients h4,
+.instructions h4 {
+  color: #215754;
+  margin-bottom: 10px;
+}
+.reviews h4 {
+  color: #215754;
+  margin-bottom: 10px;
+}
+article button {
+  border: #282c34;
+  background-color: #3a9691;
+  opacity: 94%;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+@media screen and (min-width: 1000px) {
+  .recipe-summary {
+    grid-template-columns: auto auto;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  /* CSS rules for screens with width less than 992px go here */
+  .recipe-detail-image {
+    margin-bottom: 40px;
+  }
+}
+
+/** ingredients -- modifying primereact class */
+.p-inputnumber-button-up,
+.p-inputnumber-button-down {
+  background-color: #056560;
+  border-color: #056560;
+}
+
+.p-button {
+  background-color: #056560;
+  border-color: #056560;
+  border-radius: 4px;
+}
+
+.p-button:hover {
+  background-color: #056560;
+  border-color: #056560;
+  border-radius: 4px;
+}
+
+.p-button:active,
+.p-button:clicked,
+.p-button:focus,
+.p-button:focus-visible,
+.p-button:focus-within,
+.p-button:hover {
+  background-color: #cc5c06;
+  border-color: #d3f300;
+  border-radius: 4px;
+}
+
+.video-thumbnail {
+  position: relative;
+  cursor: pointer;
+}
+
+.video-thumbnail:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.498);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  border-radius: 5px;
+}
+
+.video-thumbnail::after {
+  content: "Play";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  color: white;
+}
+
+.video-thumbnail:hover::after {
+  opacity: 1;
+}
+
+.custom-avatar img {
+  object-fit: cover;
+}
+
+img {
+  object-fit: cover !important;
+}
+
+.media-delete-overlay {
+  display: inline-block;
+  height: 150px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.p-button.p-button-icon-only.p-button-rounded.media-delete-btn {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  right: -5px;
+  top: -12px;
+  z-index: 1000;
+}
+
+.video-delete-overlay {
+  display: inline-block;
+  height: 150px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.video-delete-overlay-comment-preview {
+  display: inline-block;
+  height: 150px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.p-button.p-button-icon-only.p-button-rounded.video-delete-btn {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  right: -5px;
+  top: -10px;
+  z-index: 1000;
+}
+
+.video-delete-overlay-comment-preview
+  .p-button.p-button-icon-only.p-button-rounded.video-delete-btn {
+  position: absolute;
+  right: 0px;
+  top: -10px;
+  z-index: 1000;
+}
+
+.p-image img {
+  border-radius: 5px;
+}
+
+.p-image-preview-indicator {
+  height: 100px;
+  border-radius: 5px;
+}
+
+.p-avatar-circle {
+  background-color: #07847e;
+  background-color: #9dbbb8;
+  color: #ffffff;
+}

@@ -1,0 +1,1828 @@
+openapi: 3.0.3
+info:
+  title: Django DRF Ecommerce
+  version: 0.0.0
+paths:
+  /api/account/:
+    get:
+      operationId: account_retrieve
+      tags:
+      - account
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    put:
+      operationId: account_update
+      tags:
+      - account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+    patch:
+      operationId: account_partial_update
+      tags:
+      - account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomUser'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+  /api/account/favourites/:
+    get:
+      operationId: account_favourites_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - account
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRecipeList'
+          description: ''
+  /api/account/interactions/:
+    get:
+      operationId: account_interactions_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - account
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRecipeList'
+          description: ''
+  /api/account/login/:
+    post:
+      operationId: account_login_create
+      tags:
+      - account
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthToken'
+          description: ''
+  /api/account/logout/:
+    delete:
+      operationId: account_logout_destroy
+      tags:
+      - account
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/account/register/:
+    post:
+      operationId: account_register_create
+      tags:
+      - account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomUser'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+  /api/recipes/:
+    get:
+      operationId: recipes_list
+      description: |-
+        Create a recipe instance
+
+        URL: /recipes/
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRecipeList'
+          description: ''
+    post:
+      operationId: recipes_create
+      description: |-
+        Create a recipe instance
+
+        URL: /recipes/
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+          description: ''
+  /api/recipes/{id}/:
+    get:
+      operationId: recipes_retrieve
+      description: |-
+        Get a single instance of a recipe with the given primary key.
+
+        URL: GET /recipes/<int:pk>
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+          description: ''
+    put:
+      operationId: recipes_update
+      description: |-
+        Get a single instance of a recipe with the given primary key.
+
+        URL: GET /recipes/<int:pk>
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+          description: ''
+    patch:
+      operationId: recipes_partial_update
+      description: |-
+        Get a single instance of a recipe with the given primary key.
+
+        URL: GET /recipes/<int:pk>
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRecipe'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRecipe'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRecipe'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+          description: ''
+    delete:
+      operationId: recipes_destroy
+      description: |-
+        Get a single instance of a recipe with the given primary key.
+
+        URL: GET /recipes/<int:pk>
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/recipes/{id}/comments/:
+    get:
+      operationId: recipes_comments_list
+      description: |-
+        List or create a comment for a Recipe
+
+        URL: /recipe/{pk}/comments/
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCommentList'
+          description: ''
+    post:
+      operationId: recipes_comments_create
+      description: |-
+        List or create a comment for a Recipe
+
+        URL: /recipe/{pk}/comments/
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+          description: ''
+  /api/recipes/{id}/favourite/:
+    post:
+      operationId: recipes_favourite_create
+      description: extract the recipe id from the URL
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+    delete:
+      operationId: recipes_favourite_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/recipes/{id}/images/:
+    get:
+      operationId: recipes_images_list
+      description: |-
+        Create a recipe image instance directly
+
+        URL: /recipes/{pk}/images/
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRecipeImageList'
+          description: ''
+    post:
+      operationId: recipes_images_create_2
+      description: |-
+        Create a recipe image instance directly
+
+        URL: /recipes/{pk}/images/
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RecipeImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RecipeImage'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipeImage'
+          description: ''
+  /api/recipes/{id}/images/{img_pk}/:
+    delete:
+      operationId: recipes_images_destroy
+      description: |-
+        Delete a recipe image instance directly
+
+        URL: /recipes/{pk}/images/{img_pk}/
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: img_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/recipes/{id}/ratings/:
+    post:
+      operationId: recipes_ratings_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Rate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Rate'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rate'
+          description: ''
+    put:
+      operationId: recipes_ratings_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Rate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Rate'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rate'
+          description: ''
+    patch:
+      operationId: recipes_ratings_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRate'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rate'
+          description: ''
+    delete:
+      operationId: recipes_ratings_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/recipes/{id}/steps/{step_pk}/images/:
+    get:
+      operationId: recipes_steps_images_list
+      description: |-
+        Create a step image instance directly
+
+        URL: /recipes/{pk}/steps/{step_pk}/images
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: path
+        name: step_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStepImageList'
+          description: ''
+    post:
+      operationId: recipes_steps_images_create_2
+      description: |-
+        Create a step image instance directly
+
+        URL: /recipes/{pk}/steps/{step_pk}/images
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: step_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StepImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StepImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/StepImage'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StepImage'
+          description: ''
+  /api/recipes/{id}/steps/{step_pk}/images/{img_pk}/:
+    delete:
+      operationId: recipes_steps_images_destroy
+      description: |-
+        Delete a step image instance directly
+
+        URL: /recipes/{pk}/steps/{step_pk}/images/{img_pk}/
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: img_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: step_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/recipes/{id}/steps/{step_pk}/videos/:
+    get:
+      operationId: recipes_steps_videos_list
+      description: |-
+        Create a step image instance directly
+
+        URL: /recipes/{pk}/steps/{step_pk}/videos
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: path
+        name: step_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStepVideoList'
+          description: ''
+    post:
+      operationId: recipes_steps_videos_create_2
+      description: |-
+        Create a step image instance directly
+
+        URL: /recipes/{pk}/steps/{step_pk}/videos
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: step_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StepVideo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StepVideo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/StepVideo'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StepVideo'
+          description: ''
+  /api/recipes/{id}/steps/{step_pk}/videos/{vid_pk}/:
+    delete:
+      operationId: recipes_steps_videos_destroy
+      description: |-
+        Delete a step image instance directly
+
+        URL: /recipes/{pk}/steps/{step_pk}/images/{vid_pk}/
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: step_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: vid_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/recipes/comments/images/:
+    post:
+      operationId: recipes_comments_images_create
+      description: |-
+        Create a recipe photo instance
+
+        URL: /recipes/comments/images/
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CommentImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CommentImage'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentImage'
+          description: ''
+  /api/recipes/comments/videos/:
+    post:
+      operationId: recipes_comments_videos_create
+      description: |-
+        Create a recipe photo instance
+
+        URL: /recipes/comments/images/
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentVideo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CommentVideo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CommentVideo'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentVideo'
+          description: ''
+  /api/recipes/images/:
+    post:
+      operationId: recipes_images_create
+      description: |-
+        Create a recipe photo instance
+
+        URL: /recipes/images
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RecipeImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RecipeImage'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipeImage'
+          description: ''
+  /api/recipes/ingredients:
+    get:
+      operationId: recipes_ingredients_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedIngredientList'
+          description: ''
+  /api/recipes/popular/:
+    get:
+      operationId: recipes_popular_list
+      description: |-
+        Display popular recipes based on number of favourites and average rating!
+
+        URL: /recipes/popular
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - recipes
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRecipeList'
+          description: ''
+  /api/recipes/steps/images/:
+    post:
+      operationId: recipes_steps_images_create
+      description: |-
+        Create a recipe photo instance
+
+        URL: /recipes/steps/images
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StepImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StepImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/StepImage'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StepImage'
+          description: ''
+  /api/recipes/steps/videos/:
+    post:
+      operationId: recipes_steps_videos_create
+      description: |-
+        Create a recipe photo instance
+
+        URL: /recipes/steps/videos
+      tags:
+      - recipes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StepVideo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StepVideo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/StepVideo'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StepVideo'
+          description: ''
+  /api/schema/:
+    get:
+      operationId: schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/search/:
+    get:
+      operationId: search_list
+      description: |-
+        Search through recipes by their name, ingredients,
+        or creator.
+
+        Filter recipes based on cuisine, diet, or cooking time.
+
+        Sorted based on a combination of overall rating and number of favourites
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - search
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRecipeList'
+          description: ''
+  /api/shopping_list/:
+    get:
+      operationId: shopping_list_retrieve
+      description: |-
+        As a user, I want to have a combined shopping list of different recipes.
+        For example, if recipe A includes 500 grams of beef for 4 servings,
+        and recipe B needs 400 grams for 2 servings, the combined list should
+        contain 900 grams of beef. At selection, I can choose different values for
+        each recipe's serving.
+
+        url: GET /shopping_list
+      tags:
+      - shopping_list
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/shopping_list/recipes:
+    get:
+      operationId: shopping_list_recipes_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - shopping_list
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedShoppingItemList'
+          description: ''
+    put:
+      operationId: shopping_list_recipes_update
+      tags:
+      - shopping_list
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShoppingItem'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ShoppingItem'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ShoppingItem'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShoppingItem'
+          description: ''
+    delete:
+      operationId: shopping_list_recipes_destroy
+      tags:
+      - shopping_list
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    AuthToken:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        token:
+          type: string
+          readOnly: true
+      required:
+      - password
+      - token
+      - username
+    Comment:
+      type: object
+      properties:
+        description:
+          type: string
+        user:
+          type: string
+          readOnly: true
+        images:
+          type: array
+          items:
+            type: integer
+        videos:
+          type: array
+          items:
+            type: integer
+      required:
+      - description
+      - user
+    CommentImage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image:
+          type: string
+          format: uri
+      required:
+      - id
+      - image
+    CommentVideo:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        video:
+          type: string
+          format: uri
+      required:
+      - id
+      - video
+    Cuisine:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - id
+      - name
+    CustomUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+        phone_number:
+          type: string
+          maxLength: 20
+        profile_picture:
+          type: string
+          format: uri
+          nullable: true
+        favourite_recipes:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+      required:
+      - favourite_recipes
+      - id
+      - password
+      - phone_number
+      - username
+    Diet:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - id
+      - name
+    Ingredient:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 50
+        quantity:
+          type: number
+          format: double
+          writeOnly: true
+      required:
+      - name
+      - quantity
+    PaginatedCommentList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+    PaginatedIngredientList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ingredient'
+    PaginatedRecipeImageList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecipeImage'
+    PaginatedRecipeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipe'
+    PaginatedShoppingItemList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShoppingItem'
+    PaginatedStepImageList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/StepImage'
+    PaginatedStepVideoList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/StepVideo'
+    PatchedCustomUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+        phone_number:
+          type: string
+          maxLength: 20
+        profile_picture:
+          type: string
+          format: uri
+          nullable: true
+        favourite_recipes:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+    PatchedRate:
+      type: object
+      properties:
+        rating:
+          $ref: '#/components/schemas/RatingEnum'
+    PatchedRecipe:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        diets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Diet'
+        cuisines:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cuisine'
+        ingredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ingredient'
+          writeOnly: true
+        ingredients_list:
+          type: string
+          readOnly: true
+        rating:
+          type: string
+          readOnly: true
+        num_favourites:
+          type: string
+          readOnly: true
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/Step'
+        images:
+          type: array
+          items:
+            type: integer
+        creator:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        serving_size:
+          type: integer
+        prep_time:
+          type: integer
+        cook_time:
+          type: integer
+        base_recipe:
+          type: integer
+          nullable: true
+    Rate:
+      type: object
+      properties:
+        rating:
+          $ref: '#/components/schemas/RatingEnum'
+      required:
+      - rating
+    RatingEnum:
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      type: integer
+      description: |-
+        * `1` - 1
+        * `2` - 2
+        * `3` - 3
+        * `4` - 4
+        * `5` - 5
+    Recipe:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        diets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Diet'
+        cuisines:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cuisine'
+        ingredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ingredient'
+          writeOnly: true
+        ingredients_list:
+          type: string
+          readOnly: true
+        rating:
+          type: string
+          readOnly: true
+        num_favourites:
+          type: string
+          readOnly: true
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/Step'
+        images:
+          type: array
+          items:
+            type: integer
+        creator:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        serving_size:
+          type: integer
+        prep_time:
+          type: integer
+        cook_time:
+          type: integer
+        base_recipe:
+          type: integer
+          nullable: true
+      required:
+      - cook_time
+      - creator
+      - cuisines
+      - description
+      - diets
+      - id
+      - ingredients
+      - ingredients_list
+      - name
+      - num_favourites
+      - prep_time
+      - rating
+      - serving_size
+      - steps
+    RecipeImage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image:
+          type: string
+          format: uri
+      required:
+      - id
+      - image
+    ShoppingItem:
+      type: object
+      properties:
+        recipe_id:
+          type: integer
+          writeOnly: true
+        recipe:
+          allOf:
+          - $ref: '#/components/schemas/Recipe'
+          readOnly: true
+        serving_size:
+          type: integer
+      required:
+      - recipe
+      - recipe_id
+      - serving_size
+    Step:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        description:
+          type: string
+        images:
+          type: array
+          items:
+            type: integer
+        videos:
+          type: array
+          items:
+            type: integer
+      required:
+      - description
+      - id
+    StepImage:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image:
+          type: string
+          format: uri
+      required:
+      - id
+      - image
+    StepVideo:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        video:
+          type: string
+          format: uri
+      required:
+      - id
+      - video
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
