@@ -150,12 +150,6 @@ This phase is evaluated like a real-world software delivery, emphasizing:
 
 ---
 
-## 👥 Authors
-- **Sanah Sarin** — UI/UX, React frontend, recipes + shopping list design  
-- **Serena Wong** — Backend architecture, Django APIs, data modeling  
-
----
-
 ## ⭐ Notes & Expectations
 
 - UX matters **a lot** in every phase.  
