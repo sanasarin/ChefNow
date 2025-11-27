@@ -69,7 +69,7 @@ The project is developed in **three phases**:
 
 ## 🧱 Phase 1 – Static HTML/CSS Demo
 
-Phase 1 delivers a **fully navigable static prototype**, with no backend or JavaScript logic (except external JS libraries).
+Phase 1 delivered a **fully navigable static prototype**, with no backend or JavaScript logic (except external JS libraries).
 
 **Requirements:**
 - HTML + CSS only (frameworks allowed: **Bootstrap, Bulma, Semantic UI**, etc.)
@@ -90,7 +90,7 @@ This phase is primarily graded on **UI/UX quality**.
 
 ## 🐍 Phase 2 – Django REST Backend
 
-In Phase 2, Easy Chef becomes a **fully functional backend** using Django + DRF.
+In Phase 2, Easy Chef became a **fully functional backend** using Django + DRF.
 
 **Core Requirements:**
 - Django project running in a virtual environment  
@@ -120,10 +120,6 @@ Phase 3 brings the platform to life with a complete **React single-page applicat
   - Comments  
   - Cuisines + diets  
 
-This phase is evaluated like a real-world software delivery, emphasizing:
-- Completeness  
-- Bug-free UX  
-- Aesthetic and intuitive UI  
 
 ---
 
@@ -134,7 +130,7 @@ This phase is evaluated like a real-world software delivery, emphasizing:
 
 ### **Phase 1**
 - HTML5  
-- CSS3 (Bootstrap/Bulma recommended)
+- CSS3 (Bootstrap/Bulma)
 
 ### **Phase 2**
 - Django  
@@ -147,15 +143,6 @@ This phase is evaluated like a real-world software delivery, emphasizing:
 - React Router  
 - Axios / Fetch  
 - Modern UI components & responsive design
-
----
-
-## ⭐ Notes & Expectations
-
-- UX matters **a lot** in every phase.  
-- Pages must be beautiful, intuitive, and fully navigable.  
-- At Phase 3, the site must feel like a real commercial product.  
-- Preloaded recipe data should be meaningful and presentation-ready.  
 
 ---
 
